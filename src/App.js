@@ -1,6 +1,7 @@
 import './App.css';
 import styled from 'styled-components';
 import Calculator from './components/Calculator';
+// import Temp from './temp';
 
 const App = () => {
   const App = styled.div`
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <App>
       <Calculator />
+      {/* <Temp /> */}
     </App>
   );
 }

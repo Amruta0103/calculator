@@ -1,18 +1,40 @@
 import styled from "styled-components"
+import React, { useState } from 'react';
 
-const mylist = ["AC","←","%","÷",7,8,9,"x",4,5,6,"-",3,2,1,"+","^",0,".","="]
+const keys = ["AC","C","%","/",7,8,9,"*",4,5,6,"-",3,2,1,"+","**",0,".","="]
 const Calculator = () => {
+  const [val, setVal] = useState('');
+
+  const clickHandler = (e) => {
+    let buttonValue = e.target.innerText;
+    if(buttonValue === "="){
+      let finalValue = eval(val)
+      setVal(finalValue);
+      console.log("ye equal to sign hai")
+    }
+    else if(buttonValue === "C"){
+      setVal(val.slice(0,-1))
+    }
+    else if(buttonValue === "AC"){
+      setVal('');
+    }
+    else{
+      setVal(val + buttonValue);
+    }
+  }
+
   const Calculator = styled.div`
-  height: 600px;
-  width: 400px;
-  border: 1px solid #808080;
-  box-shadow: 3px 3px #808080;
+  height: 450px;
+  width: 300px;
+  border: 1px solid #080808;
+  border-radius: 1rem;
   `
   const Display = styled.div`
-  height: 300px;
-  background: #0080FF;
+  height: 150px;
+  background: #00ff7f;
   width: inherit;
   position: relative;
+  border-radius: 1rem 1rem 0 0;
   `
 
   const DisplayText = styled.div`
@@ -27,17 +49,17 @@ const Calculator = () => {
   margin: auto;
   `
   const Button = styled.button`
-  height: 4.7rem;
-  width: 5rem;
+  height: 60px;
+  width: 75px;
   `
 
   return(
     <Calculator>
       <Display>
-        <DisplayText >Hello <br />goodbye</DisplayText>
+        <DisplayText >{val}</DisplayText>
       </Display>
-      <Buttons>{mylist.map((item)=>(
-        <Button key={item} style={{fontSize:"20px"}}>{item}</Button>
+      <Buttons>{keys.map((item)=>(
+        <Button onClick={clickHandler} key={item} style={{fontSize:"20px"}}>{item}</Button>
       ))}</Buttons>
     </Calculator>
   )
