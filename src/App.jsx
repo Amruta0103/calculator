@@ -1,10 +1,10 @@
 import './App.css';
 import styled from 'styled-components';
 import Calculator from './components/Calculator';
-// import Temp from './temp';
 
 const App = () => {
   const App = styled.div`
+  background: #1c2f2f;
   display:flex;
   justify-content:center;
   align-items: center;
@@ -14,7 +14,6 @@ const App = () => {
   return (
     <App>
       <Calculator />
-      {/* <Temp /> */}
     </App>
   );
 }

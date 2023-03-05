@@ -8,6 +8,7 @@ const Calculator = () => {
   const clickHandler = (e) => {
     let buttonValue = e.target.innerText;
     if(buttonValue === "="){
+      // eslint-disable-next-line
       let finalValue = eval(val)
       setVal(finalValue);
       console.log("ye equal to sign hai")
@@ -27,7 +28,7 @@ const Calculator = () => {
   height: 450px;
   width: 300px;
   border: 1px solid #080808;
-  border-radius: 1rem;
+  border-radius: 1rem 1rem 0 0;
   `
   const Display = styled.div`
   height: 150px;
