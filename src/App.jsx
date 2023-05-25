@@ -12,14 +12,10 @@ const App = () => {
   height: 100vh;
   width:100%;
   `
-  const Title = styled.div`
-  color: white;
-  font-size: xx-large;
-  `
   
   return (
     <App>
-      <Title>Calcultor App</Title>
+      {/* <Title>Simply-Calcy</Title> */}
       <Calculator />
     </App>
   );

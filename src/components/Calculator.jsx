@@ -27,8 +27,7 @@ const Calculator = () => {
   const Calculator = styled.div`
   height: 450px;
   width: 300px;
-  border: 1px solid #080808;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 1rem;
   `
   const Display = styled.div`
   height: 150px;
@@ -37,21 +36,26 @@ const Calculator = () => {
   position: relative;
   border-radius: 1rem 1rem 0 0;
   `
-
   const DisplayText = styled.div`
   color: black;
   position: absolute;
   right:0;
   bottom:0;
+  font-size: 20px;
   text-align: end;
   margin: 1rem;
   `
   const Buttons = styled.div`
   margin: auto;
+  background-color: grey;
+  border-radius: 0 0 1rem 1rem;
   `
   const Button = styled.button`
   height: 60px;
   width: 75px;
+  border-radius:1rem;
+  border: 1px solid black;
+  box-shadow: none;
   `
 
   return(
