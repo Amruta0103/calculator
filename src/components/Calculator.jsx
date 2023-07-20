@@ -1,7 +1,9 @@
 import styled from "styled-components"
 import React, { useState } from 'react';
 
-const keys = ["AC","C","%","/",7,8,9,"*",4,5,6,"-",3,2,1,"+","**",0,".","="]
+const row = ["AC","C","%"]
+const col = ["/","*","-","+","="]
+const keys = [7,8,9,4,5,6,3,2,1,"**",0,"."]
 const Calculator = () => {
   const [val, setVal] = useState('');
 
@@ -32,7 +34,7 @@ const Calculator = () => {
   background: #fefefe;
   `
   const Display = styled.div`
-  flex: 1 0 40%;
+  flex: 1 0 35%;
   width: inherit;
   position: relative;
   `
@@ -45,35 +47,66 @@ const Calculator = () => {
   text-align: end;
   margin: 1rem;
   `
-  const ButtonsBox = styled.div`
+  const FlexBoxMain = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  background-color: transparent;
   `
-  const Buttons = styled.div`
-  flex: 1 0 21%;
+  const FlexBoxSub = styled.div`
+  margin: 0rem;
+  flex: 1;
+  `
+  const Row = styled.div`
+  display:flex;
+  `
+  const Keys =styled.div`
+  display:flex;
+  flex-wrap: wrap;
+  `
+  const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 0.25
+  `
+  const Cols = styled.button`
+  flex: 1 0 20%;
+  box-shadow: none;
+  border: none;
+  `
+  const Buttons = styled.button`
+  flex: 1 0 33%;
+  font-size: 20px;
   height: 3.5rem;
   box-shadow: none;
   border: none;
-  display: flex;
-  `
-  const Button = styled.button`
-  box-shadow:none;
-  margin: auto;
-  border: none;
-  padding: 0rem;
-  background: none;
   `
   return(
     <Calculator>
       <Display>
         <DisplayText >{val}</DisplayText>
       </Display>
-      <ButtonsBox>{keys.map((item)=>(
+      {/* <ButtonsBox>{keys.map((item)=>(
         <Buttons>
           <Button onClick={clickHandler} key={item} style={{fontSize:"20px"}}>{item}</Button>
         </Buttons>
-      ))}</ButtonsBox>
+      ))}</ButtonsBox> */}
+      <FlexBoxMain>
+        <FlexBoxSub>
+          <Row>
+            {row.map((r)=>(
+              <Buttons onClick={clickHandler}>{r}</Buttons>
+            ))}
+          </Row>
+          <Keys>
+            {keys.map((k)=>(
+              <Buttons onClick={clickHandler}>{k}</Buttons>
+            ))}
+          </Keys>
+        </FlexBoxSub>
+        <Column>
+          {col.map((c)=>(
+            <Cols onClick={clickHandler}>{c}</Cols>
+          ))}
+        </Column>
+      </FlexBoxMain>
     </Calculator>
   )
 }
