@@ -18,6 +18,7 @@ export default function Temp() {
     ) {
       setResult(result + btnValue);
     } else if (btnValue === "=") {
+      // eslint-disable-next-line
       let tempres = eval(result);
       setResult(tempres);
     } else if (btnValue === "AC") {

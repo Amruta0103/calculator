@@ -11,7 +11,6 @@ const Calculator = () => {
       // eslint-disable-next-line
       let finalValue = eval(val)
       setVal(finalValue);
-      console.log("ye equal to sign hai")
     }
     else if(buttonValue === "C"){
       setVal(val.slice(0,-1))
@@ -25,16 +24,17 @@ const Calculator = () => {
   }
 
   const Calculator = styled.div`
-  height: 450px;
-  width: 300px;
-  border-radius: 1rem;
+  height: 500px;
+  width: 350px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background: #fefefe;
   `
   const Display = styled.div`
-  height: 150px;
-  background: #00ff7f;
+  flex: 1 0 40%;
   width: inherit;
   position: relative;
-  border-radius: 1rem 1rem 0 0;
   `
   const DisplayText = styled.div`
   color: black;
@@ -45,27 +45,35 @@ const Calculator = () => {
   text-align: end;
   margin: 1rem;
   `
+  const ButtonsBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+  `
   const Buttons = styled.div`
-  margin: auto;
-  background-color: grey;
-  border-radius: 0 0 1rem 1rem;
+  flex: 1 0 21%;
+  height: 3.5rem;
+  box-shadow: none;
+  border: none;
+  display: flex;
   `
   const Button = styled.button`
-  height: 60px;
-  width: 75px;
-  border-radius:1rem;
-  border: 1px solid black;
-  box-shadow: none;
+  box-shadow:none;
+  margin: auto;
+  border: none;
+  padding: 0rem;
+  background: none;
   `
-
   return(
     <Calculator>
       <Display>
         <DisplayText >{val}</DisplayText>
       </Display>
-      <Buttons>{keys.map((item)=>(
-        <Button onClick={clickHandler} key={item} style={{fontSize:"20px"}}>{item}</Button>
-      ))}</Buttons>
+      <ButtonsBox>{keys.map((item)=>(
+        <Buttons>
+          <Button onClick={clickHandler} key={item} style={{fontSize:"20px"}}>{item}</Button>
+        </Buttons>
+      ))}</ButtonsBox>
     </Calculator>
   )
 }
