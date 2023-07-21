@@ -31,12 +31,13 @@ const Calculator = () => {
   margin: auto;
   display: flex;
   flex-direction: column;
-  background: #fefefe;
+  background: #ebebeb;
   `
   const Display = styled.div`
-  flex: 1 0 35%;
+  height: 200px;
   width: inherit;
   position: relative;
+  background: transparent;
   `
   const DisplayText = styled.div`
   color: black;
@@ -55,55 +56,85 @@ const Calculator = () => {
   flex: 1;
   `
   const Row = styled.div`
-  display:flex;
+  display: flex;
   `
   const Keys =styled.div`
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   `
   const Column = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 0.25
+  flex-wrap: wrap;
+  flex: 0.25;
   `
-  const Cols = styled.button`
-  flex: 1 0 20%;
+  const ColButtons = styled.button`
+  font-size: 20px;
   box-shadow: none;
   border: none;
+  height: 3.5rem;
+  flex: 1;
+  background: #ebebeb;
   `
   const Buttons = styled.button`
   flex: 1 0 33%;
   font-size: 20px;
-  height: 3.5rem;
   box-shadow: none;
   border: none;
+  height: 3.5rem;
+  background: #ebebeb;
+  align-items:center;
   `
+  const CoreButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  background: #ffffff;
+  `
+  const SideButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 2rem;
+  border: 1px solid transparent;
+  background: #d6d6d6;
+  `
+  
   return(
     <Calculator>
       <Display>
         <DisplayText >{val}</DisplayText>
       </Display>
-      {/* <ButtonsBox>{keys.map((item)=>(
-        <Buttons>
-          <Button onClick={clickHandler} key={item} style={{fontSize:"20px"}}>{item}</Button>
-        </Buttons>
-      ))}</ButtonsBox> */}
       <FlexBoxMain>
         <FlexBoxSub>
           <Row>
             {row.map((r)=>(
-              <Buttons onClick={clickHandler}>{r}</Buttons>
+              <Buttons onClick={clickHandler}>
+                <SideButton>{r}</SideButton>
+              </Buttons>
             ))}
           </Row>
           <Keys>
             {keys.map((k)=>(
-              <Buttons onClick={clickHandler}>{k}</Buttons>
+              <Buttons onClick={clickHandler}>
+                <CoreButton>{k}</CoreButton>
+              </Buttons>
             ))}
           </Keys>
         </FlexBoxSub>
         <Column>
           {col.map((c)=>(
-            <Cols onClick={clickHandler}>{c}</Cols>
+             <ColButtons onClick={clickHandler}>
+              <SideButton>{c}</SideButton>
+             </ColButtons>
           ))}
         </Column>
       </FlexBoxMain>
