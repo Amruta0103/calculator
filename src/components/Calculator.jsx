@@ -8,15 +8,28 @@ const Calculator = () => {
   const [input, setInput] = useState('');
   const [val, setVal] = useState();
 
+  const keybrs = (e) => {
+    // console.log(e.key,"=>",e.keyCode)
+    if((e.keyCode < 46 || e.keyCode > 57) || (e.keyCode === 187  && e.keyCode=== 189 && e.keyCode === 107 && e.keyCode === 16 && e.keyCode === 191)
+    // && e.keyCode === 8 && e.keyCode === 17 && e.keyCode === 16
+    ){
+      e.preventDefault();
+      // console.log(e.key);
+    }
+    // if((e.keyCode > 57 || e.keyCode < 164) && (e.keyCode > 16 ||e.keyCode < 48)){
+    //   e.preventDefault();
+    // }
+  }
+
   const clickHandler = (e) => {
     let buttonValue = e.target.innerText;
-    console.log("this is input:",input);
+    // console.log("this is input:",input);
     if(buttonValue === "="){
       // eslint-disable-next-line
       let finalValue = eval(input);
       // console.log("Ek",input)
       // setInput(input.substring(0,input.length-1));
-      console.log("temp", input,"\n","val",finalValue);
+      // console.log("temp", input,"\n","val",finalValue);
       setVal(finalValue);
     }
     else if(buttonValue === "C"){
@@ -36,7 +49,7 @@ const Calculator = () => {
       <Display>
         <DisplayBox >
           <DisplayText>
-            <InputVal>{input}</InputVal>
+            <InputVal contentEditable={true} onKeyDown={keybrs}>{input}</InputVal>
             <OutputVal>{val}</OutputVal>
           </DisplayText>
         </DisplayBox>
@@ -45,14 +58,14 @@ const Calculator = () => {
         <FlexBoxSub>
           <Row>
             {row.map((r)=>(
-              <WrapButtons onClick={clickHandler}>
+              <WrapButtons key={r} onClick={clickHandler}>
                 <SideBgButton>{r}</SideBgButton>
               </WrapButtons>
             ))}
           </Row>
           <Keys>
             {keys.map((k)=>(
-              <WrapButtons onClick={clickHandler}>
+              <WrapButtons key={k} onClick={clickHandler} >
                 <NoBgButton>{k}</NoBgButton>
               </WrapButtons>
             ))}
@@ -60,7 +73,7 @@ const Calculator = () => {
         </FlexBoxSub>
         <Column>
           {col.map((c)=>(
-            <ColButtons onClick={clickHandler}>
+            <ColButtons key={c} onClick={clickHandler}>
               <SideBgButton>{c}</SideBgButton>
             </ColButtons>
           ))}
@@ -108,6 +121,10 @@ position: relative;
 `
 const InputVal = styled.div`
 font-size: 18px;
+&:focus {
+  border: 1px solid transparent;
+  outline: none;
+}
 `
 const OutputVal = styled.div`
 font-size: 22px;
