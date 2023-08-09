@@ -37,7 +37,7 @@ align-items: center
 const Logo = styled.img`
 height: 1.5rem;
 width: 1.5rem;
-margin: 0 0.8rem 0;
+margin: 0 0.5rem 0;
 `
 const Footer = styled.div`
 color: #9c9c9c;
