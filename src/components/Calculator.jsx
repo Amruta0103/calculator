@@ -9,13 +9,14 @@ const Calculator = () => {
   const [val, setVal] = useState();
 
   const keybrs = (e) => {
+    // // MAKE NESTED IF STATEMENT AND TRY THIS STUPID FUNCTION OUT
     // console.log(e.key,"=>",e.keyCode)
-    if((e.keyCode < 46 || e.keyCode > 57) || (e.keyCode === 187  && e.keyCode=== 189 && e.keyCode === 107 && e.keyCode === 16 && e.keyCode === 191)
+    // if((e.keyCode < 46 || e.keyCode > 57) && (e.keyCode === 187  && e.keyCode=== 189 && e.keyCode === 107 && e.keyCode === 16 && e.keyCode === 191)
     // && e.keyCode === 8 && e.keyCode === 17 && e.keyCode === 16
-    ){
-      e.preventDefault();
+    // ){
+      // e.preventDefault();
       // console.log(e.key);
-    }
+    // }
     // if((e.keyCode > 57 || e.keyCode < 164) && (e.keyCode > 16 ||e.keyCode < 48)){
     //   e.preventDefault();
     // }
@@ -84,8 +85,8 @@ const Calculator = () => {
 }
 
 const CalculatorBox = styled.div`
-height: 450px;
-width: 350px;
+height: 30rem;
+width: 22rem;
 margin: auto;
 display: flex;
 flex-direction: column;
@@ -103,8 +104,8 @@ border-radius: 1rem 1rem 0 0;
 font-family: 'Orbitron', sans-serif;
 `
 const DisplayBox = styled.div`
-width: 300px;
-height: 70px;
+width: 20rem;
+height: 7rem;
 overflow-wrap: break-word;
 color: black;
 text-align: right;
