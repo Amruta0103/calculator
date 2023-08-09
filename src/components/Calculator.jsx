@@ -85,8 +85,10 @@ const Calculator = () => {
 }
 
 const CalculatorBox = styled.div`
-height: 30rem;
-width: 18rem;
+height: 80%;
+width: 70%;
+min-width: 15rem;
+max-width: 18rem;
 margin: 1rem;
 display: flex;
 flex-direction: column;
