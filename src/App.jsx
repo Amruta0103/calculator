@@ -21,7 +21,7 @@ const AppBox = styled.div`
 background: #1c2f2f;
 display:flex;
 flex-direction:column;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 height: 100vh;
 width:100%;
