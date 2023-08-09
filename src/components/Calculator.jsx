@@ -87,7 +87,7 @@ const Calculator = () => {
 const CalculatorBox = styled.div`
 height: 30rem;
 width: 22rem;
-margin: auto;
+margin: 1rem;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -97,7 +97,6 @@ border-radius: 1rem;
 const Display = styled.div`
 display: flex;
 margin: auto;
-height: 90px;
 width: inherit;
 background: transparent;
 border-radius: 1rem 1rem 0 0;
