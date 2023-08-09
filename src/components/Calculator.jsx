@@ -86,7 +86,7 @@ const Calculator = () => {
 
 const CalculatorBox = styled.div`
 height: 30rem;
-width: 22rem;
+width: 18rem;
 margin: 1rem;
 display: flex;
 flex-direction: column;
@@ -97,13 +97,13 @@ border-radius: 1rem;
 const Display = styled.div`
 display: flex;
 margin: auto;
-width: inherit;
+width: 95%;
 background: transparent;
 border-radius: 1rem 1rem 0 0;
 font-family: 'Orbitron', sans-serif;
 `
 const DisplayBox = styled.div`
-width: 20rem;
+width: 100%;
 height: 7rem;
 overflow-wrap: break-word;
 color: black;
