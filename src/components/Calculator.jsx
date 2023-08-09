@@ -85,7 +85,7 @@ const Calculator = () => {
 }
 
 const CalculatorBox = styled.div`
-height: 80%;
+height: 75%;
 width: 70%;
 min-width: 15rem;
 max-width: 18rem;
