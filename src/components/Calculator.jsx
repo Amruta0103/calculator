@@ -27,11 +27,15 @@ const Calculator = () => {
     // console.log("this is input:",input);
     if(buttonValue === "="){
       // eslint-disable-next-line
-      let finalValue = eval(input);
+      let ansValue = eval(input);
+      let decVal = ansValue.toFixed(2)
+      if(decVal.length > 13){
+        return(setVal('Error'))
+      } 
       // console.log("Ek",input)
       // setInput(input.substring(0,input.length-1));
       // console.log("temp", input,"\n","val",finalValue);
-      setVal(finalValue);
+      setVal(decVal);
     }
     else if(buttonValue === "C"){
       setInput(input.slice(0,-1))
@@ -105,7 +109,7 @@ border-radius: 1rem 1rem 0 0;
 font-family: 'Orbitron', sans-serif;
 `
 const DisplayBox = styled.div`
-width: 100%;
+width: 90%;
 height: 7rem;
 overflow-wrap: break-word;
 color: black;
@@ -116,12 +120,14 @@ border-radius: 1rem;
 padding: 0.5rem;
 `
 const DisplayText = styled.div`
-width: inherit;
+width: 100%;
 height: inherit;
 margin: auto;
 position: relative;
 `
 const InputVal = styled.div`
+overflow: hidden;
+height: 60%;
 font-size: 18px;
 &:focus {
   border: 1px solid transparent;
@@ -129,9 +135,11 @@ font-size: 18px;
 }
 `
 const OutputVal = styled.div`
+width: inherit;
+max-height: 1rem;
 font-size: 22px;
 position: absolute;
-bottom: 0;
+bottom: 0.5rem;
 right: 0;
 `
 const FlexBoxMain = styled.div`
